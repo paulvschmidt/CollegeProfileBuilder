@@ -14,7 +14,7 @@ class College: NSObject {
     var enrollment = 0
     var image = UIImage(named: "Default")
     var webAddress:NSURL! = NSURL(string: "http://google.com")
-    
+
     
     convenience init(name: String, location : String, enrollment : Int, image : UIImage, webAddress : NSURL){
         self.init()

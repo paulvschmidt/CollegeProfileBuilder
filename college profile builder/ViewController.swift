@@ -44,9 +44,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         editButton.tag = 0
-        colleges.append(College(name: "University of Michigan", location: "Ann Arbor", enrollment: 51147, image: UIImage(named: "UofM.png")!, webAddress: (NSURL(string: "https://umich.edu/"))!))
-        colleges.append(College(name: "Michigan State University", location: "East Lansing", enrollment: 50085, image:UIImage(named: "Msu.png")!, webAddress: (NSURL(string: "https://msu.edu/"))!))
-        colleges.append(College(name: "Harvard College", location: "Cambridge", enrollment: 21000, image: UIImage(named: "Harvard.png")!, webAddress: ((NSURL(string: "http://www.harvard.edu/")))!))
+        colleges.append(College(name: "University of Michigan", location: "Ann Arbor, Michigan", enrollment: 51147, image: UIImage(named: "UofM.png")!, webAddress: (NSURL(string: "https://umich.edu/"))!))
+        colleges.append(College(name: "Michigan State University", location: "East Lansing, Michigan", enrollment: 50085, image:UIImage(named: "Msu.png")!, webAddress: (NSURL(string: "https://msu.edu/"))!))
+        colleges.append(College(name: "Harvard College", location: "Cambridge, Massachusetts", enrollment: 21000, image: UIImage(named: "Harvard.png")!, webAddress: ((NSURL(string: "http://www.harvard.edu/")))!))
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -33,6 +33,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         college.location = locationTextField.text!
         college.enrollment = Int(enrollmentTextField.text!)!
         college.webAddress = NSURL(string: webAddressTextField.text!)
+        college.image = imageView.image
     }
     @IBAction func onTappedWebsiteButton(sender: AnyObject) {
         UIApplication.sharedApplication().openURL(college.webAddress!)
@@ -52,5 +53,10 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
                 self.imageView.image = image
             }
         }
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let dvc = segue.destinationViewController as! MapViewController
+        dvc.name = collegeTextField.text!
+        dvc.location = locationTextField.text!
     }
 }
