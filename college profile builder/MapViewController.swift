@@ -14,7 +14,7 @@ class MapViewController: UIViewController, UITextFieldDelegate {
     
     var name = ""
     var location = ""
-    var locationsArray : UIAlertAction
+    var locationsArray : UIAlertAction!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,43 +35,66 @@ class MapViewController: UIViewController, UITextFieldDelegate {
             let region = MKCoordinateRegionMake(center, span)
             let pin = MKPointAnnotation()
             pin.coordinate = center
-            pin.title = textField.text!
+            pin.title = pinTitle
             mapView.setRegion(region, animated: true)
             mapView.addAnnotation(pin)
+            self.view.endEditing(true)
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        let actionSheet = UIAlertController(title: "Possible Locations", message: "Select a location", preferredStyle: UIAlertControllerStyle.ActionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in
-            self.dismissViewControllerAnimated(true, completion: nil)
-        }
-        let locationsAction = UIAlertAction(title: "killbutt", style: UIAlertActionStyle.Default) { (action) -> Void in
             let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(textField.text!, completionHandler: {
                 placemarks, error in
                 if error != nil{
                     print(error)
                 }
-                else if placemarks!.count == 1{
-                    let placemark = placemarks!.first as CLPlacemark!
-                    let center = placemark.location.coordinate
-                    let span = MKCoordinateSpanMake(0.1, 0.1)
-                    self.displayMap(center, span: span, pinTitle: textField.text!)
-                }
                 else{
-                    for i in placemarks!{
-                        let placemark = i as CLPlacemark!
+                    var sheetDisplay:[CLPlacemark] = []
+                    var actionAmount = true
+
+                    if placemarks!.count == 1{
+                        let placemark = placemarks!.first as CLPlacemark!
                         let center = placemark.location.coordinate
                         let span = MKCoordinateSpanMake(0.1, 0.1)
-                        self.displayMap(center, span: span, pinTitle: textField.text!)
-                        
+                        self.displayMap(center, span: span, pinTitle: self.textField.text!)
+                        actionAmount = false
                     }
+                    else if placemarks!.count > 1 && placemarks!.count <= 10 {
+                        sheetDisplay = placemarks!
+                    }
+                    else{
+                        for (var amount = 0; amount < 5; amount++) {
+                            sheetDisplay[amount] = placemarks![amount]
+                        }
+                    }
+                    
+                    if actionAmount == true{
+                        let actionSheet = UIAlertController(title: "Select Location", message: "Select a location", preferredStyle: .ActionSheet)
+                        for(var amount = 0; amount < sheetDisplay.count; amount++){
+                            let placemark = placemarks![amount] as CLPlacemark!
+                            let center = placemark.location.coordinate
+                            let span = MKCoordinateSpanMake(0.1, 0.1)
+                            
+                            let placerAction = UIAlertAction(title: placemarks![amount].name + ", " + placemarks![amount].administrativeArea , style: .Default){ (action) -> Void in
+                                self.displayMap(center, span: span, pinTitle: self.textField.text!)
+                            }
+                            
+                            actionSheet.addAction(placerAction)
+                        }
+                        
+                        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                            
+                        }
+                        
+                        actionSheet.addAction(cancelAction)
+                        
+                        self.presentViewController(actionSheet, animated: true, completion: nil)
+                    }
+                    
                 }
             })
-        }
-        actionSheet.addAction(cancelAction)
         textField.resignFirstResponder()
-        presentViewController(actionSheet, animated: true, completion: nil)
         return true
     }
-    
 }
+

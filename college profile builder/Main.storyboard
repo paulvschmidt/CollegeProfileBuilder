@@ -94,13 +94,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enrollment" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t0d-vq-Wmg">
-                                <rect key="frame" x="163" y="115" width="150" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S2X-ci-EZh">
-                                <rect key="frame" x="337" y="72" width="150" height="30"/>
+                                <rect key="frame" x="163" y="116" width="150" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -124,7 +119,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="858-tR-odm">
-                                <rect key="frame" x="256" y="289" width="89" height="30"/>
+                                <rect key="frame" x="180" y="289" width="89" height="30"/>
                                 <state key="normal" title="Edit Image"/>
                                 <connections>
                                     <action selector="onTappedEditImageButtom:" destination="kWP-V0-Bzp" eventType="touchUpInside" id="jnQ-Uz-PI7"/>
@@ -138,23 +133,28 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ie-F2-XhP">
-                                <rect key="frame" x="353" y="289" width="128" height="30"/>
+                                <rect key="frame" x="292" y="289" width="128" height="30"/>
                                 <state key="normal" title="View on map"/>
                                 <connections>
                                     <segue destination="gt1-7t-N3v" kind="show" id="eOt-oe-3cC"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enrollment" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t0d-vq-Wmg">
+                                <rect key="frame" x="321" y="72" width="150" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3KW-Mc-pvg" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" constant="-62" id="0ah-yA-ngl"/>
                             <constraint firstItem="gFe-CV-GLM" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" id="0pP-Zw-ce6"/>
-                            <constraint firstItem="t0d-vq-Wmg" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" constant="-62" id="5s7-cw-zGc"/>
+                            <constraint firstItem="7ie-F2-XhP" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" constant="56" id="54X-lx-0cI"/>
+                            <constraint firstItem="S2X-ci-EZh" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" constant="-62" id="GRK-6w-oHa"/>
                             <constraint firstItem="Qbr-WL-o3G" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" id="Jvd-Ol-6QT"/>
-                            <constraint firstItem="7ie-F2-XhP" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" constant="117" id="U7k-ak-vil"/>
-                            <constraint firstItem="S2X-ci-EZh" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" constant="112" id="Wmc-Lw-Afe"/>
+                            <constraint firstItem="858-tR-odm" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" constant="-75.5" id="W1G-U4-hIa"/>
+                            <constraint firstItem="t0d-vq-Wmg" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" constant="96" id="cP7-Dc-sIB"/>
                             <constraint firstItem="3ih-mv-0gt" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" id="gzR-6Y-Xcs"/>
-                            <constraint firstItem="858-tR-odm" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" id="wLI-TB-oH4"/>
                             <constraint firstItem="iJz-a6-eMg" firstAttribute="centerX" secondItem="7We-Ki-aXB" secondAttribute="centerX" constant="112" id="yDF-RX-lYa"/>
                         </constraints>
                     </view>
